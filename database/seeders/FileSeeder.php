@@ -23,7 +23,7 @@ class FileSeeder extends Seeder
                 'author_id' => 1,
                 'community_name' => $community_one,
                 'slug' => Str::slug($community_one),
-                'cabinet'=>'A1',
+                'cabinet_id'=>'1',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]

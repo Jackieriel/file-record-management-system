@@ -11,3 +11,5 @@ Route::get('/', [App\Http\Controllers\FileController::class, 'index'])->name('in
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/community/edit/{slug}', [App\Http\Controllers\HomeController::class, 'manageCommunity'])->name('community.edit');

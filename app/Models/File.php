@@ -13,6 +13,11 @@ class File extends Model
         'author_id',
         'community_name',
         'slug',
-        'cabinet',
+        'cabinet_id',
     ];
+
+    public function cabinet()
+    {
+        return $this->belongsTo('App\Models\Cabinet');
+    }
 }

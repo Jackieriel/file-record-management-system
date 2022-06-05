@@ -21,7 +21,7 @@ class CreateFilesTable extends Migration
                 ->onDelete('cascade');
             $table->string('community_name');
             $table->string('slug');
-            $table->string('cabinet');
+            $table->unsignedBigInteger('cabinet_id');
             $table->timestamps();
         });
     }

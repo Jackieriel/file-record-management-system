@@ -21,29 +21,16 @@
                                     <i class="fa fa-user p-2"></i>
                                 </span>
 
-                                <input type="text" name="login"
-                                    class="form-control{{ $errors->has('username') || $errors->has('email') ? ' is-invalid' : '' }}"
-                                    required autofocus placeholder="Username or Email" aria-label="Username or Emaiil"
-                                    aria-describedby="Username or Email" value="{{ old('username') ?: old('email') }}">
+                                <input id="username" type="text"
+                                    class="form-control @error('username') is-invalid @enderror" name="username"
+                                    value="{{ old('username') }}" required autocomplete="username" autofocus
+                                    placeholder="Username or Email">
 
-                                {{-- New --}}
-                                {{-- <input id="login" type="text"
-               class="form-control{{ $errors->has('username') || $errors->has('email') ? ' is-invalid' : '' }}"
-               name="login" value="{{ old('username') ?: old('email') }}" required autofocus> --}}
-
-                                {{-- New --}}
-
-                                @if ($errors->has('username') || $errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('username') ?: $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-
-                                {{-- @error('email')
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror --}}
+                                @enderror
                             </div>
                         </div>
 
@@ -64,6 +51,11 @@
                                 @enderror
                             </div>
                         </div>
+                        @if (Session::has('error'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ Session::get('error') }}
+                            </div>
+                        @endif
 
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block btn-flat" name="login">
